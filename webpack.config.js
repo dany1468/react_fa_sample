@@ -1,10 +1,13 @@
 var ExtractTextPlugin = require('extract-text-webpack-plugin')
 
 module.exports = {
-  entry: './index.js',
+  entry: {
+    react_fa: './index_react_fa.js',
+    font_awesome_webpack: './index_font_awesome_webpack.js'
+  },
   output: {
     path: 'assets',
-    filename: 'bundle.js'
+    filename: '[name]_bundle.js'
   },
   module: {
     loaders: [
@@ -17,11 +20,11 @@ module.exports = {
         }
       },
       {
-        test: /\.(css)(\?.+)$/,
-        loader: ExtractTextPlugin.extract('style-loader', 'css-loader?-url')
+        test: /\.css(\?.+)?$/,
+        loader: ExtractTextPlugin.extract('style-loader', 'css-loader')
       },
       {
-        test: /\.(otf|eot|svg|ttf|woff|woff2)/,
+        test: /\.(otf|eot|svg|ttf|woff|woff2)(\?.+)?$/,
         loader: 'url'
       }
     ]
