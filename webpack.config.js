@@ -3,7 +3,8 @@ var ExtractTextPlugin = require('extract-text-webpack-plugin')
 module.exports = {
   entry: {
     react_fa: './index_react_fa.js',
-    font_awesome_webpack: './index_font_awesome_webpack.js'
+    font_awesome_webpack: './index_font_awesome_webpack.js',
+    font_awesome: './index_font_awesome.js'
   },
   output: {
     path: 'assets',
@@ -30,6 +31,6 @@ module.exports = {
     ]
   },
   plugins: [
-    new ExtractTextPlugin('bundle.css')
+    new ExtractTextPlugin('[name]_bundle.css')
   ]
 }
